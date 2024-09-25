@@ -124,18 +124,14 @@ After investigation the coindesk website I found out that the latest articles pa
 
 ### Scraping Implementation
 
-1. Parent class
-
-I built a parent class called `CoinDeskScrapper`, which was intended to handles external API calls, timestamp formating, scraping article details etc. The following methods are present in this class.
+1. Parent class: I built a parent class called `CoinDeskScrapper`, which was intended to handles external API calls, timestamp formating, scraping article details etc. The following methods are present in this class.
 
 - `format_time(self)`: Used for datetime formating
 - `map_section(self, partial_url)`: This method was used to check if the scraped article belongs to the sections that needs to be excluded. It takes a single argument.
 - `get_articles(page, size)`: This method was used for retrieving a list of articles. Due to the api pagination, a mamixmum of 40 articles can be requested on a single page. It takes two arguments, `page` and `size` which represent page number within the pagination and how many articles should be returned on that page respectively. Please refer to the references for the external coin desk api and the relevant params.
 - `get_item_details(self, url)`: This method was used for scraping an articles details page. It takes a single arguement `url`, which is the full url to the article details page. Using `BeautifulSoup`, these values where extracted: `author`, `title`, `published_at`, `content` and `a list of tags`.
 
-2. Child class and it's processes
-
-I built a second class called `Command` that inherits the first class `CoinDeskScrapper`. This class has four broad methods:
+2. Child class and it's processes: I built a second class called `Command` that inherits the first class `CoinDeskScrapper`. This class has four broad methods:
 
 - `fetch_article_urls_and_ids(self)`: This method calls `get_articles(page, size)` from the parent class in a while loop to collect 20 valid articles and append them to a list called `valid_urls_and_ids`. The method return this list when called.
 
@@ -154,8 +150,8 @@ I used Django Rest framework to build two API endpoint
 
 ### References
 
-Coindesk API : [clik here](https://www.coindesk.com/pf/api/v3/content/fetch/please-stop)
-Sample of Coindesk API call with pagination on the 5th page [click here](https://www.coindesk.com/pf/api/v3/content/fetch/please-stop?query={"language":"en","size":20,"page":5,"format":"timeline"}):
-Django: [clik here](https://www.djangoproject.com/)
-Django REST framwork: [clik here](https://www.django-rest-framework.org/)
-Pre-commit: [click here](https://pre-commit.com/#install)
+- Coindesk API : [clik here](https://www.coindesk.com/pf/api/v3/content/fetch/please-stop)
+- Sample of Coindesk API call with pagination on the 5th page [click here](https://www.coindesk.com/pf/api/v3/content/fetch/please-stop?query={"language":"en","size":20,"page":5,"format":"timeline"}):
+- Django: [clik here](https://www.djangoproject.com/)
+- Django REST framwork: [clik here](https://www.django-rest-framework.org/)
+- Pre-commit: [click here](https://pre-commit.com/#install)
