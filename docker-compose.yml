@@ -1,0 +1,10 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: eunice
+      POSTGRES_PASSWORD: eunice
+      POSTGRES_DB: eunice
+    ports:
+      - 5433:5432

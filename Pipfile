@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+beautifulsoup4 = "*"
+django = "*"
+djangorestframework = "*"
+python-decouple = "*"
+psycopg2-binary = "*"
+requests = "*"
+
+[dev-packages]
+factory-boy = "*"
+pre-commit = "*"
+black = "==22.3.0"
+
+[requires]
+python_version = "3.10"
