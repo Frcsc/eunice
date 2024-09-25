@@ -15,27 +15,25 @@ Please note that I have also configured the necessary defaults for this applicat
 
 This project requires the following dependencies, so first install them on your system using your preferred method. Also note that PostgreSQL is the database of choice for this application. Since the exercise instructions allow the assumption that the database is up and running, we can assume the databse available and accessible with the provided credentials from the excercise file.
 
-- Python 3.10
-- Pipenv
+- Python 3.10 (Required)
+- Pipenv (Required)
 
-1. Install application packages
+
+1. Set up the Python virtual environment, and download and install all the Python dependencies
 
 ```
-
-pipenv install
+pipenv sync
 ```
 
 2. Apply database migrations (With the assumption that the database is already available)
 
 ```
-
 pipenv run ./manage.py migrate
 ```
 
 3. (optional) create an admin user for the admin panel
 
 ```
-
 pipenv run ./manage.py create_admin_user
 ```
 
@@ -46,7 +44,6 @@ The script utilises django's custom command, and it can be found in `coin_desk/m
 1. Run this command
 
 ```
-
 pipenv run ./manage.py scrap_coin_desk
 ```
 
@@ -57,7 +54,6 @@ Please note that you have to start the local server before testing the api endpo
 1. Run this command to start the local server
 
 ```
-
 pipenv run ./manage.py runserver
 ```
 
@@ -66,28 +62,27 @@ After the local server starts, you can test the API endpoints with postman or cu
 2. Get all articles
 
 Please note that I have returned the `article_id` in this response to allow for easy retrieval of a single article instance in the subsequent API.
+
 ```
 curl http://127.0.0.1:8000/articles
-
 ```
 
 or
+
 ```
 curl http://localhost:8000/articles
-
 ```
 
 3. Get a single article based on `article_id`
 
 ```
 curl http://127.0.0.1:8000/articles/article_id
-
 ```
 
 or
+
 ```
 curl http://localhost:8000/articles/article_id
-
 ```
 
 ### Test Cases
